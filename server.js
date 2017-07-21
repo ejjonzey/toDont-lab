@@ -7,12 +7,16 @@ const logger = require('morgan')
 const app = express();
 const port = process.env.PORT || 3000;
 
+//controller setup
+const todontsController = require('./controller/todonts');
+
 //log from morgan
 app.use(logger('dev'));
 
 
 //views
 app.set('view engine', 'hbs');
+app.use('/todonts', todontsController);
 
 
 //homepage
