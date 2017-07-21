@@ -9,12 +9,14 @@ router.get('/',(req, res) => {
 	});
 });
 
+/* SHOW TODO */
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  const todo = data.seededTodos[id];
-  res.render('todos/show',{
-    todo: todo,
+  const todonts = data.seededToDonts[id];
+  res.render('todonts/show',{
+    todonts: todonts,
     id: id
   });
 });
+
 module.exports = router;
