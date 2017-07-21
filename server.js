@@ -2,7 +2,8 @@
 const express = require('express');
 const hbs = require('hbs');
 const logger = require('morgan')
-
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 //app settings
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,6 +13,10 @@ const todontsController = require('./controller/todonts');
 
 //log from morgan
 app.use(logger('dev'));
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
+app.use(methodOverride('_method'));
 
 
 //views
